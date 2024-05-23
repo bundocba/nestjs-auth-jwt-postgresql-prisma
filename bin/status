@@ -1,0 +1,5 @@
+#!/bin/sh
+set -o errexit
+reldir=`dirname $0`
+cd $reldir/..
+bin/compose ps $@

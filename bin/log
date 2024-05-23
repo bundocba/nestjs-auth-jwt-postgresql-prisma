@@ -1,0 +1,2 @@
+#!/bin/bash
+bin/compose logs -t --tail 100 -f -- $@

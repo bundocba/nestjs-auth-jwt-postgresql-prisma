@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -e $1 ]; then
+    s=$(bin/compose ps --services)
+else
+    s=$@    
+fi
+
+for c in $s ; do 
+  ip=$(docker inspect `bin/compose ps -q $c` | grep IPAddress | grep -Eo '([0-9]{1,3}\.?){4,4}')
+  printf "%-30s${ip}\n" "$c"
+done

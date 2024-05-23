@@ -1,0 +1,5 @@
+#!/bin/bash
+set -o errexit
+reldir=`dirname $0`
+cd $reldir/..
+bin/compose exec api sh
