@@ -81,4 +81,4 @@ src/
 
 ```
 ### Support Me
-<a href="https://www.buymeacoffee.com/invite/bundocba"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" /></a>
+<a href="https://www.buymeacoffee.com/bundocba"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width="200" /></a>
