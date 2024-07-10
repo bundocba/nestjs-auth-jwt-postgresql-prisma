@@ -4,7 +4,7 @@ import { Configuration } from './common/config'
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import {json} from "express";
-
+import * as cors from 'cors';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
@@ -19,6 +19,14 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
   app.use(json({ limit: '50mb' }));
+
+  // Enable CORS
+  app.enableCors({
+    origin: 'http://localhost:3000', // Allow your Next.js app
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Allow cookies to be sent
+  });
+
   await app.listen(port);
   console.debug(`Application listen on ${await app.getUrl()}`)
 }

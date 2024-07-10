@@ -8,6 +8,7 @@ import {CacheModule} from "@modules/cache";
 import {ScopeVariableMiddleware} from "@common/middlewares";
 import {UserModule} from "@modules/user/user.module";
 import { APP_GUARD } from '@nestjs/core'
+import {responseInterceptor} from "@common/providers";
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { APP_GUARD } from '@nestjs/core'
       provide: APP_GUARD,
       useClass: AuthorizeGuard,
     },
+    responseInterceptor,
   ],
 })
 export class AppModule {

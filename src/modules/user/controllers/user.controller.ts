@@ -20,4 +20,9 @@ export class UserController extends BaseController {
         const userId = this.currentSession.userId;
         return this.userRepository.getById(userId);
     }
+
+    @Get('by-email')
+    async getUserByEmail(email: string){
+        return this.userRepository.getByEmail(email, undefined);
+    }
 }

@@ -35,6 +35,10 @@ export class UserAuthController extends BaseController {
   async register(
       @Body() payload: RegisterDto
   ): Promise<AuthResponse> {
+    if (payload.password !== payload.password_confirmation) {
+      throw new Error('Passwords do not match');
+    }
+    delete payload.password_confirmation;
     return await this.authService.signUp(payload)
   }
 }
